@@ -1,17 +1,7 @@
 import random
 import streamlit as st
 from logic_utils import check_guess, parse_guess
-
-def get_range_for_difficulty(difficulty: str):
-    # FIXME: Logic breaks here
-
-    if difficulty == "Easy":
-        return 1, 20
-    if difficulty == "Normal":
-        return 1, 100
-    if difficulty == "Hard":
-        return 1, 50
-    return 1, 100
+from rule_utils import get_range_for_difficulty
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
@@ -113,7 +103,7 @@ if st.session_state.status != "playing":
 
 if submit:
     st.session_state.attempts += 1
-
+    #FIX: Refactored logic into logic_utils.py using Copilot Agent mode
     ok, guess_int, err = parse_guess(raw_guess)
 
     if not ok:
@@ -121,6 +111,8 @@ if submit:
         st.error(err)
     else:
         st.session_state.history.append(guess_int)
+
+        #FIX: Refactored logic into logic_utils.py using Copilot Agent mode
         outcome, message = check_guess(guess_int, st.session_state.secret)
 
         if show_hint:

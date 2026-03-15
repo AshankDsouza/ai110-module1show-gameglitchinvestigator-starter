@@ -2,6 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from logic_utils import check_guess, parse_guess
+from rule_utils import get_range_for_difficulty
 
 def test_winning_guess():
     # If the secret is 50 and guess is 50, it should be a win
@@ -48,3 +49,15 @@ def test_parse_guess_decimal_input_should_be_rejected():
     assert ok is False
     assert guess is None
     assert err == "That is not a number."
+
+
+def test_get_range_easy():
+    assert get_range_for_difficulty("Easy") == (1, 20)
+
+
+def test_get_range_normal():
+    assert get_range_for_difficulty("Normal") == (1, 50)
+
+
+def test_get_range_hard():
+    assert get_range_for_difficulty("Hard") == (1, 100)

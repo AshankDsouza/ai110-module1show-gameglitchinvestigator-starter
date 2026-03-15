@@ -45,18 +45,40 @@ Hard ranges from 1 to 100
 
 ## 2. How did you use AI as a teammate?
 
-- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)? 
+Copilot
+
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+The AI suggestion:
+"Yes — the core conflict in bug 1 is between the comparison result and the hint text in app.py:32-47.
+
+In app.py:37-40, when guess > secret, the code correctly labels the outcome as "Too High" but returns the message "Go HIGHER!". Those two statements contradict each other."
+
+How I verified it? --> Wrote unit tests, refactored, ran the tests and saw they all passed and then verified the second through the UI
+
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+There were none. 
 
 ---
 
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+Wrote unit tests, and ran them to check if the bug was fixed. 
+Verified again through the UI. 
+
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+I fixed rather than wrote test_guess_too_high, but it needed a lot of refactoring to work as a test. It showed me some of the utls functions were not refactored to the utils file and that there was bug where it was giving the hint backwards. 
+
+
 - Did AI help you design or understand any tests? How?
+AI helped me refactoring and writing these tests:
+test_get_range_easy
+test_get_range_normal
+test_get_range_hard
+
+AI helped in doing the grunt work, I did not have to specify the correct output which is obvious. 
 
 ---
 

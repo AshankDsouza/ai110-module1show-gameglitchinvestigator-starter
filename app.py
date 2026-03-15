@@ -1,7 +1,10 @@
 import random
 import streamlit as st
+import logic_utils
 
 def get_range_for_difficulty(difficulty: str):
+    # FIXME: Logic breaks here
+
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
@@ -33,6 +36,7 @@ def check_guess(guess, secret):
     if guess == secret:
         return "Win", "🎉 Correct!"
 
+    # FIXME: Logic breaks here
     try:
         if guess > secret:
             return "Too High", "📈 Go HIGHER!"
@@ -155,6 +159,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
+        # FIXME: Logic breaks here
         if st.session_state.attempts % 2 == 0:
             secret = str(st.session_state.secret)
         else:

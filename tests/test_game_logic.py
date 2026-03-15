@@ -2,6 +2,8 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from logic_utils import check_guess, parse_guess
+
+#FIX: Refactored rules into rule_utils.py using Copilot Agent mode
 from rule_utils import get_range_for_difficulty
 
 def test_winning_guess():

@@ -26,12 +26,20 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+To guess a number with as few hints as possible to get as high a score as possible.
+
 - [ ] Detail which bugs you found.
+Fixed: parse_guess to parse and accept only accpetable guesses
+      check_guess to return hint properly based on secret and guess
+      difficulty range to normal, high and easy to ranges that make sense.
+
 - [ ] Explain what fixes you applied.
+Moved game logic into utility files, fixed reversed higher/lower hints, fixed guess parsing so only valid integers are accepted, and corrected the difficulty ranges for Easy, Normal, and Hard. Added tests and ran `pytest` until all tests passed.
+
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+![alt text](image.png)
 
 ## 🚀 Stretch Features
 

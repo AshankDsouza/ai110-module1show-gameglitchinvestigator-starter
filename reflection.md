@@ -86,11 +86,24 @@ AI helped in doing the grunt work, I did not have to specify the correct output 
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 
+In Streamlit, the app script runs again from top to bottom every time the user interacts with something, like pressing a button or typing in a field. At first this felt weird, because I expected the app to keep its place like a normal web app. Session state is what makes that possible: it stores values like score, attempts, secret number, and game status so they survive those reruns. Without session state, every interaction would reset the game and lose progress. I now think of Streamlit as "rerun everything, but keep important values in session state."
+
+
+
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+
+Writing tests to specify correct behavior and functionality. 
+Using tests as a way of prompting the agent in a correct direction and also to align with correctness in an objective and repeatable way. 
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+
+Start with writing test cases due to the aforementioned advantages. 
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+It help me understand how refactoring should work. How to verify correctness of AI generated code. 

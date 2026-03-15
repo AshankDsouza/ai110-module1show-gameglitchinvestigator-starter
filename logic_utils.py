@@ -9,7 +9,19 @@ def parse_guess(raw: str):
 
     Returns: (ok: bool, guess_int: int | None, error_message: str | None)
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    if raw is None:
+        return False, None, "Enter a guess."
+
+    raw = str(raw).strip()
+    if raw == "":
+        return False, None, "Enter a guess."
+
+    try:
+        value = int(raw)
+    except (TypeError, ValueError):
+        return False, None, "That is not a number."
+
+    return True, value, None
 
 
 def check_guess(guess, secret):
